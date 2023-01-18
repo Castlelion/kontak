@@ -27,7 +27,7 @@ class Perusahaan(models.Model):
     update_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.nama
+        return self.Nama
 
     class Meta:
         ordering = ['-id']

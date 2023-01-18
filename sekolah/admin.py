@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Sekolah     
 
 # Register your models here.
-class namaSekolah(admin.ModelAdmin):
-    list_display = ['Nama','Email','Web','Hp','Alamat','Jenis_Sekolah']
+class SekolahAdmin(admin.ModelAdmin):
+    list_display = ['NPSN','Nama','Email','Telp','Alamat','Provinsi','Kabupaten_Kota','Kecamatan','Status']
 
-admin.site.register(Sekolah,namaSekolah)
+admin.site.register(Sekolah, SekolahAdmin)
