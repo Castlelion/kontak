@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+# from django.utils.text import slugify
 
 class JenisKelamin(models.TextChoices):
     LAKILAKI ='L', _('Laki-laki')
@@ -29,6 +30,11 @@ class Siswa(models.Model):
     def __str__(self):
         return self.Nama
 
+    # def save (self, *args, **kwargs):
+    #     self.slug = slugify(self.Nama)
+    #     super(Siswa, self).save(*args, **kwargs)
+
     class Meta:
         ordering = ['-id']
+
         
