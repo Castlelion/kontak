@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'siswa',
     'sekolah',
     'perusahaan',
-    'ckeditor',
 ]
 
 MIDDLEWARE = [

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css'%}">
+
 </head>
 <body>
-    <h1>hai</h1>
+    <center class="mt-5">
+        <h1> Kontak </h1>
+    </center>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-4">
+                <div class="card">
+                    <img src="/static/img/logo.png" >
+                    <div class="card-body">
+                        <h5 class="card-title"> Data Sekolah </h5>
+                        <a href="" class="btn btn-primary w-100 ">Sekolah</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <img src="/static/img/logo.png" >
+                    <div class="card-body">
+                        <h5 class="card-title"> Data Siswa </h5>
+                        <a href="{% url 'siswa:siswa' %}" class="btn btn-primary w-100 ">Siswa</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <img src="/static/img/logo.png" >
+                    <div class="card-body">
+                        <h5 class="card-title"> Data Sekolah </h5>
+                        <a href="" class="btn btn-primary w-100 ">Sekolah</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js'%}"></script>
+
 </body>
 </html>
