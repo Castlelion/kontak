@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Perusahaan
 
 # Register your models here.
-class namaPerusahaan(admin.ModelAdmin):
-    list_display = ['Nama','Email','Web','Hp','Alamat','Jenis_Perusahaan']
+class dataPerusahaan(admin.ModelAdmin):
+    list_display = ['nama', 'kategori', 'bidang', 'alamat', 'nama_pic', 'jabatan', 'no_tlp', 'email', 'created_by', 'created_at', 'updated_at' ]
 
-admin.site.register(Perusahaan,namaPerusahaan)
+admin.site.register(Perusahaan, dataPerusahaan)

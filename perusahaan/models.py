@@ -1,33 +1,55 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.models import User
 
-class JenisPerusahaan(models.TextChoices):
-    PT ='PT', _('PT')
-    CV ='CV', _('CV')
-    Firma ='F', _('Firma')
-    KOPERASI ='K', _('Koperasi')
-    Persero ='PR', _('Persero')
-    PERSEORANGAN ='PG', _('Perseorangan')
+# Create your models here.
 
+class KategoriPerusahaan(models.TextChoices):
+        Pemerintahan = 'Pem', _('Pemerintahan')
+        Negeri = 'Neg', _('Negeri')
+
+class BidangPerusahaan(models.TextChoices):
+        PerusahaanEkstraktif = 'PE', _('Perusahaan Ekstraktif')
+        PerusahaanAgraris = 'PA', _('Perusahaan Agraris')
+        PerusahaanDagang = 'PD', _('Perusahaan Dagang')
+        PerusahaanJasa = 'PJ', _('Perusahaan Jasa')
+        PerusahaanIndustri = 'PI', _('Perusahaan Industri')
+
+class JabatanPerusahaan(models.TextChoices):
+        CEO = 'CEO', _('CEO')
+        KabagTU = 'KBTU', _('Kabag TU')
+        
 class Perusahaan(models.Model):
-    Nama = models.CharField(max_length=50)
-    Email = models.EmailField(max_length=100)
-    Web = models.CharField(max_length=100, blank=True, null=True)
-    Hp = models.CharField(max_length=20)
-    Alamat = models.TextField(max_length=100)
-    Jenis_Perusahaan = models.CharField(
-        max_length=2,
-        choices=JenisPerusahaan.choices,
+    nama = models.CharField(max_length=50)
+    kategori = models.CharField(
+        max_length=3,
+        choices=KategoriPerusahaan.choices,
+        default='',
     )
-    # sekolah
+    bidang = models.CharField(
+        max_length=2,
+        choices=BidangPerusahaan.choices,
+        blank=True,
+        null=True,
+    )
+    alamat = models.TextField(default='')
+    nama_pic = models.CharField(max_length=254, blank=True, null=True)
+    jabatan = models.CharField(
+        max_length=4,
+        choices=JabatanPerusahaan.choices,
+        blank=True,
+        null=True,
+    )
+    no_tlp = models.CharField(max_length=20, blank=True, null=True)
+    email = models.EmailField(max_length=254, blank=True, null=True)
 
-    # default
-    # create_by =
-    create_at = models.DateTimeField(auto_now_add=True)
-    update_at = models.DateTimeField(auto_now=True)
+    #default
+    created_by = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL, related_name="perusahaan_created_by", default='')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.Nama
+        return self.nama
 
     class Meta:
         ordering = ['-id']

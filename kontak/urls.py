@@ -11,7 +11,7 @@ urlpatterns = [
     path('', views.Home),
     path('siswa/', include('siswa.urls')),
     path('perusahaan/', include('perusahaan.urls')),
-    path('test/', include('sekolah.urls'), name='test'),
+    path('sekolah/', include('sekolah.urls')),
 ]
 
 # if settings.DEBUG:

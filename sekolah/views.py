@@ -1,5 +1,18 @@
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
 from django.shortcuts import render
+
 from .models import Sekolah
-# Create your views here.
-def Sekolah(request):
-    return render(request, 'pkl/test.html')
+
+class IndexSekolah(ListView):
+    queryset = Sekolah.objects.all()
+    
+def sekolah(request):
+    queryset = Sekolah.objects.all()
+    con = {
+        'sekolah':queryset
+
+    } 
+    return render(request, 'pkl/sekolah.html', con)
