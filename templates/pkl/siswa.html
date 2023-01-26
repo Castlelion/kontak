@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Data Siswa</title>
   <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css'%}">
 </head>
 
@@ -19,25 +19,35 @@
 
   <div class="container">
     <div class="row">
-      <div class="">
-        <table class="table">
+      <div class="mt-4">
+        <table class="table table-light table-hover table-striped">
           <thead>
             <tr>
               <th scope="col">No</th>
               <th scope="col">NISN</th>
               <th scope="col">Nama Siswa</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Jenis Kelamin</th>
+              <th scope="col">Email</th>
+              <th scope="col">No HP</th>
+              <th scope="col">Asal Sekolah</th>
+              <th scope="col">Alamat</th>
+              <th scope="col">Tempat Lahir</th>
+              <th scope="col">Tanggal Lahir</th>
             </tr>
           </thead>
           <tbody>
             {% for x in siswa %}
             <tr>
-              <th scope="row">1</th>
+              <th scope="row">{{ forloop.counter }}</th>
               <td>{{ x.NISN }}</td>
               <td>{{ x.Nama }}</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <td>{{ x.Jenis_Kelamin }}</td>
+              <td>{{ x.Email }}</td>
+              <td>{{ x.Hp }}</td>
+              <td>{{ x.Asal_Sekolah }}</td>
+              <td>{{ x.Alamat }}</td>
+              <td>{{ x.Tempat_Lahir }}</td>
+              <td>{{ x.Tanggal_Lahir }}</td>
             </tr>
             {% endfor %}
           </tbody>
