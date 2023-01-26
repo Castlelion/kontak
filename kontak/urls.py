@@ -10,7 +10,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Home),
     path('siswa/', include('siswa.urls')),
-    path('test/', include('sekolah.urls'), name='test'),
+    path('sekolah/', include('sekolah.urls')),
+    # path('test/', include('sekolah.urls'), name='test'),
 ]
 
 # if settings.DEBUG:
