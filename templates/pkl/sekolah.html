@@ -6,55 +6,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Data Sekolah</title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css'%}">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand bg-dark">
-        <a href="{% url 'siswa:siswa' %}" class="navbar-brand">Siswa</a>
-        <a href="{% url 'sekolah:sekolah' %}" class="navbar-brand">Sekolah</a>
-        <a href="{% url 'perusahaan:perusahaan' %}" class="navbar-brand">Perusahaan</a>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid mt-2 mb-1">
+          <a class="navbar-brand" href="{% url 'sekolah:sekolah' %}">Sekolah</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'siswa:siswa' %}">Siswa</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Perusahaan</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">NPSN</th>
-                            <th scope="col">Nama_SMK</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Telp</th>
-                            <th scope="col">Alamat</th>
-                            <th scope="col">Provinsi</th>
-                            <th scope="col">Kabupaten_kota</th>
-                            <th scope="col">Kecamatan</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for x in sekolah %}
-                        <tr>
-                            <th scope="row">{{ forloop.counter }}</th>
-                            <td>{{ x.NPSN }}</td>
-                            <td>{{ x.Nama }}</td>
-                            <td>{{ x.Email }}</td>
-                            <td>{{ x.Telp }}</td>
-                            <td>{{ x.Alamat }}</td>
-                            <td>{{ x.Provinsi }}</td>
-                            <td>{{ x.Kabupaten_kota }}</td>
-                            <td>{{ x.Kecamatan }}</td>
-                            <td>{{ x.Status }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+    <div class="container mt-3">
+    <div class="row">
+        <div class="">
+        <table class="table table-light table-hover table-striped">
+            <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">NPSN</th>
+                <th scope="col">Nama_SMK</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telp</th>
+                <th scope="col">Alamat</th>
+                <th scope="col">Provinsi</th>
+                <th scope="col">Kabupaten_kota</th>
+                <th scope="col">Kecamatan</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+    <tbody>
+            {% for x in sekolah %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ x.NPSN }}</td>
+                <td>{{ x.Nama }}</td>
+                <td>{{ x.Email }}</td>
+                <td>{{ x.Telp }}</td>
+                <td>{{ x.Alamat }}</td>
+                <td>{{ x.Provinsi }}</td>
+                <td>{{ x.Kabupaten_kota }}</td>
+                <td>{{ x.Kecamatan }}</td>
+                <td>{{ x.Status }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-            <script src="{% static 'bootstrap/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js'%}"></script>
 </body>
 
 </html>
