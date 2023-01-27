@@ -5,29 +5,29 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class KategoriPerusahaan(models.TextChoices):
-        Pemerintahan = 'Pem', _('Pemerintahan')
-        Negeri = 'Neg', _('Negeri')
+        Pemerintahan = 'Pemerintahan', _('Pemerintahan')
+        Negeri = 'Negeri', _('Negeri')
 
 class BidangPerusahaan(models.TextChoices):
-        PerusahaanEkstraktif = 'PE', _('Perusahaan Ekstraktif')
-        PerusahaanAgraris = 'PA', _('Perusahaan Agraris')
-        PerusahaanDagang = 'PD', _('Perusahaan Dagang')
-        PerusahaanJasa = 'PJ', _('Perusahaan Jasa')
-        PerusahaanIndustri = 'PI', _('Perusahaan Industri')
+        PerusahaanEkstraktif = 'Perusahaan Ekstraktif', _('Perusahaan Ekstraktif')
+        PerusahaanAgraris = 'Perusahaan Agraris', _('Perusahaan Agraris')
+        PerusahaanDagang = 'Perusahaan Dagang', _('Perusahaan Dagang')
+        PerusahaanJasa = 'Perusahaan Jasa', _('Perusahaan Jasa')
+        PerusahaanIndustri = 'Perusahaan Industri', _('Perusahaan Industri')
 
 class JabatanPerusahaan(models.TextChoices):
         CEO = 'CEO', _('CEO')
-        KabagTU = 'KBTU', _('Kabag TU')
+        KabagTU = 'Kabag TU', _('Kabag TU')
         
 class Perusahaan(models.Model):
     nama = models.CharField(max_length=50)
     kategori = models.CharField(
-        max_length=3,
+        max_length=20,
         choices=KategoriPerusahaan.choices,
         default='',
     )
     bidang = models.CharField(
-        max_length=2,
+        max_length=50,
         choices=BidangPerusahaan.choices,
         blank=True,
         null=True,
@@ -35,7 +35,7 @@ class Perusahaan(models.Model):
     alamat = models.TextField(default='')
     nama_pic = models.CharField(max_length=254, blank=True, null=True)
     jabatan = models.CharField(
-        max_length=4,
+        max_length=10,
         choices=JabatanPerusahaan.choices,
         blank=True,
         null=True,
