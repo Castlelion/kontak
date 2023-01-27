@@ -8,7 +8,7 @@ from kontak import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.Home),
+    path('', views.home, name='home'),
     path('siswa/', include('siswa.urls')),
     path('perusahaan/', include('perusahaan.urls')),
     path('sekolah/', include('sekolah.urls')),

@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 
 
 class StatusSekolah(models.TextChoices):
-    SWASTA ='S', _('Swasta')
-    NEGERI ='N', _('Negeri')
+    SWASTA ='Swasta', _('Swasta')
+    NEGERI ='Negeri', _('Negeri')
 
 
 class Sekolah(models.Model):
