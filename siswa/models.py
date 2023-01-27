@@ -20,7 +20,7 @@ class Siswa(models.Model):
     Alamat = models.TextField(blank=True, null=True)
 
     Tempat_Lahir = models.CharField(max_length=100)
-    Tanggal_Lahir = models.DateField()
+    Tanggal_Lahir = models.DateField(blank=True ,null=True)
 
     # default
     # create_by =
